@@ -45,9 +45,9 @@ nav.top a:hover,nav.top a.on{background:var(--teal-light);color:var(--teal-dark)
 footer.site{background:#fff;border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:.9rem}
 footer.site .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 footer.site a{margin-right:14px}
-</style></head>
+</style><style>.framed nav.top,.framed footer.site{display:none}</style></head>
 <body>
-<nav class="top"><div class="wrap"><a class="brand" href="home.html">PatJohn <span>Ashkin</span></a><ul><li><a href="home.html">HOME</a></li><li><a href="learning-design.html">Learning Design</a></li><li><a href="ux-ui-design.html">UX/UI Design</a></li><li><a href="about.html" class="on">ABOUT ME</a></li><li><a href="contact.html">CONTACT</a></li><li><a href="https://www.linkedin.com/in/pashkin/" target="_blank" rel="noopener">LINKEDIN</a></li></ul></div></nav>
+<nav class="top"><div class="wrap"><a class="brand" href="home.html" data-site="https://www.patjohnashkin.com/home">PatJohn <span>Ashkin</span></a><ul><li><a href="home.html" data-site="https://www.patjohnashkin.com/home">HOME</a></li><li><a href="learning-design.html" data-site="https://www.patjohnashkin.com/portfolio/learning-design">Learning Design</a></li><li><a href="ux-ui-design.html" data-site="https://www.patjohnashkin.com/portfolio/ux-ui-design">UX/UI Design</a></li><li><a href="about.html" data-site="https://www.patjohnashkin.com/about-me" class="on">ABOUT ME</a></li><li><a href="contact.html" data-site="https://www.patjohnashkin.com/contact">CONTACT</a></li><li><a href="https://www.linkedin.com/in/pashkin/" target="_blank" rel="noopener">LINKEDIN</a></li></ul></div></nav>
 
 <section class="dark"><div class="wrap">
   <span class="eyebrow" style="color:#7FD1D9">About me</span>
@@ -110,9 +110,17 @@ footer.site a{margin-right:14px}
 
 <section class="dark"><div class="wrap">
   <h2>Let's talk design</h2>
-  <a class="btn" href="contact.html">Get in touch</a>
+  <a class="btn" href="contact.html" data-site="https://www.patjohnashkin.com/contact">Get in touch</a>
   <a class="btn ghost" style="color:#fff;border-color:#fff;margin-left:8px" href="https://www.linkedin.com/in/pashkin/" target="_blank" rel="noopener">LinkedIn</a>
 </div></section>
 
-<footer class="site"><div class="wrap"><div><a href="home.html">Home</a><a href="learning-design.html">Learning Design</a><a href="ux-ui-design.html">UX/UI Design</a><a href="about.html">About</a><a href="contact.html">Contact</a><a href="mailto:patjohnashkin@gmail.com">Email</a></div><div>&copy; 2026 PatJohn Ashkin. All Rights Reserved.</div></div></footer>
+<footer class="site"><div class="wrap"><div><a href="home.html" data-site="https://www.patjohnashkin.com/home">Home</a><a href="learning-design.html" data-site="https://www.patjohnashkin.com/portfolio/learning-design">Learning Design</a><a href="ux-ui-design.html" data-site="https://www.patjohnashkin.com/portfolio/ux-ui-design">UX/UI Design</a><a href="about.html" data-site="https://www.patjohnashkin.com/about-me">About</a><a href="contact.html" data-site="https://www.patjohnashkin.com/contact">Contact</a><a href="mailto:patjohnashkin@gmail.com">Email</a></div><div>&copy; 2026 PatJohn Ashkin. All Rights Reserved.</div></div></footer>
+<script>
+(function(){
+  var framed=false; try{framed=window.self!==window.top;}catch(e){framed=true;}
+  if(!framed) return;
+  document.documentElement.classList.add('framed');
+  document.querySelectorAll('a[data-site]').forEach(function(a){a.href=a.getAttribute('data-site');a.target='_blank';a.rel='noopener';});
+})();
+</script>
 </body></html>
